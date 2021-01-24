@@ -68,5 +68,33 @@ public class AddressBookSubClass  {
     }
 
 
+    public void deleteContactDetails(String first_name,AddressBookMain[] addressBookMainArray) {
+
+        System.out.println("CONTACT  DETAILS after deleting ARE:");
+
+        for(int i = 0; i < addressBookMainArray.length; i++) {
+            try {
+                if ((addressBookMainArray[i].first_Name).equals(first_name)) {
+                    for (int j = i; j < addressBookMainArray.length; j++) {
+                        if (j < addressBookMainArray.length-1) {
+                            addressBookMainArray[j] = addressBookMainArray[j + 1];
+
+                        } else {
+                            addressBookMainArray[j] = null;
+                        }
+
+                    }
+
+                }
+            } catch (Exception e) {
+                continue;
+            }
+            System.out.println("                                 ");
+            System.out.println("CONTACT " + (i + 1) + " DETAILS ARE:");
+            addressBookMainArray[i].displayContacts();
+        }
+    }
+
+
 }
 
